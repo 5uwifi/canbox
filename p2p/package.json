@@ -1,0 +1,24 @@
+{
+  "name": "can",
+  "version": "0.1.0",
+  "description": "Content and AD Network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Content",
+    "and",
+    "AD",
+    "Network"
+  ],
+  "author": "hsienfu.tseng@hotmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "bignumber.js": "^7.2.1",
+    "heap": "^0.2.6",
+    "msgpack5": "^4.2.0",
+    "ripemd160": "^2.0.2",
+    "winston": "^3.0.0-rc6"
+  }
+}
