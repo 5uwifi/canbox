@@ -1,0 +1,36 @@
+Initializing daemon...
+Successfully raised file descriptor limit to 2048.
+Swarm key fingerprint: dac312cdf35f37c545d09316973455f4
+Swarm is limited to private network of peers with the swarm key
+Swarm key fingerprint: canbox_network
+Swarm listening on /ip4/127.0.0.1/tcp/4001
+Swarm listening on /ip4/192.168.1.56/tcp/4001
+Swarm listening on /ip6/::1/tcp/4001
+Swarm listening on /p2p-circuit/ipfs/QmewdecZzBrNEgohwn2mekymKtNnRsv4HdoDakGQqNQdz5
+Swarm announcing /ip4/10.10.11.16/tcp/18320
+Swarm announcing /ip4/127.0.0.1/tcp/4001
+Swarm announcing /ip4/192.168.1.56/tcp/4001
+Swarm announcing /ip6/::1/tcp/4001
+API server listening on /ip4/127.0.0.1/tcp/5001
+Gateway (readonly) server listening on /ip4/127.0.0.1/tcp/8080
+Daemon is ready
+
+Received interrupt signal, shutting down...
+(Hit ctrl-c again to force-shutdown the daemon.)
+Initializing daemon...
+Successfully raised file descriptor limit to 2048.
+Swarm key fingerprint: dac312cdf35f37c545d09316973455f4
+Swarm is limited to private network of peers with the swarm key
+Swarm key fingerprint: canbox_network
+Swarm listening on /ip4/127.0.0.1/tcp/4001
+Swarm listening on /ip4/169.254.237.14/tcp/4001
+Swarm listening on /ip4/192.168.1.56/tcp/4001
+Swarm listening on /ip6/::1/tcp/4001
+Swarm listening on /p2p-circuit/ipfs/QmewdecZzBrNEgohwn2mekymKtNnRsv4HdoDakGQqNQdz5
+Swarm announcing /ip4/127.0.0.1/tcp/4001
+Swarm announcing /ip4/169.254.237.14/tcp/4001
+Swarm announcing /ip4/192.168.1.56/tcp/4001
+Swarm announcing /ip6/::1/tcp/4001
+API server listening on /ip4/127.0.0.1/tcp/5001
+Gateway (readonly) server listening on /ip4/127.0.0.1/tcp/8080
+Daemon is ready

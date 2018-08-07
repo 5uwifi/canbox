@@ -4,7 +4,7 @@
 
 
 - [x] P2P
-- [ ] IPFS
+- [x] IPFS
 - [ ] GSLB
 - [ ] Bandwidth
 - [ ] Storage
