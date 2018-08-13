@@ -9,9 +9,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jbenet/goprocess"
-	"bazil.org/fuse"
-	"bazil.org/fuse/fs"
+	"gx/ipfs/QmSF8fPo3jgVBAy8fpdjjYqgG87dkJgUprRBHRd2tmfgpP/goprocess"
+	"gx/ipfs/QmSJBsmLP1XMjv8hxYg2rUMdPDB7YUpyBo9idjrJ6Cmq6F/fuse"
+	"gx/ipfs/QmSJBsmLP1XMjv8hxYg2rUMdPDB7YUpyBo9idjrJ6Cmq6F/fuse/fs"
 )
 
 var ErrNotMounted = errors.New("not mounted")

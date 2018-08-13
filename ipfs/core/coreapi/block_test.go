@@ -8,7 +8,7 @@ import (
 
 	opt "github.com/ipfs/go-ipfs/core/coreapi/interface/options"
 
-	mh "github.com/multiformats/go-multihash"
+	mh "gx/ipfs/QmPnFwZ2JXKnXgMw8CdBPxn7FWh6LLdjUjxV1fKHuJnkr8/go-multihash"
 )
 
 func TestBlockPut(t *testing.T) {

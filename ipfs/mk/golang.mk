@@ -17,8 +17,6 @@ TEST_GO_BUILD :=
 CHECK_GO :=
 
 go-pkg-name=$(shell $(GOCC) list $(go-tags) github.com/ipfs/go-ipfs/$(1))
-$(warning XXXXXXXXX)
-$(warning $(go-pkg-name))
 go-main-name=$(notdir $(call go-pkg-name,$(1)))$(?exe)
 go-curr-pkg-tgt=$(d)/$(call go-main-name,$(d))
 go-pkgs-novendor=$(shell $(GOCC) list github.com/ipfs/go-ipfs/... | grep -v /Godeps/)

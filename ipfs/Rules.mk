@@ -36,10 +36,8 @@ include $(dir)/Rules.mk
 dir := test
 include $(dir)/Rules.mk
 
-$(warning "before cmd")
 dir := cmd/ipfs
 include $(dir)/Rules.mk
-$(warning "after cmd")
 
 # include this file only if coverage target is executed
 # it is quite expensive
@@ -49,18 +47,9 @@ ifneq ($(filter coverage% clean distclean,$(MAKECMDGOALS)),)
 	include $(dir)/Rules.mk
 endif
 
-dir := unixfs/pb
-include $(dir)/Rules.mk
-
-dir := merkledag/pb
-include $(dir)/Rules.mk
-
-dir := exchange/bitswap/message/pb
-include $(dir)/Rules.mk
-
 dir := pin/internal/pb
 include $(dir)/Rules.mk
-$(warning "last before build")
+
 
 # -------------------- #
 #   universal rules    #
@@ -72,10 +61,10 @@ $(warning "last before build")
 # -------------------- #
 #     core targets     #
 # -------------------- #
-$(warning tgt_bin: $(TGT_BIN))
+
 build: $(TGT_BIN)
 .PHONY: build
-$(warning clean: $(CLEAN))
+
 clean:
 	rm -rf $(CLEAN)
 .PHONY: clean

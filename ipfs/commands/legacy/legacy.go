@@ -4,7 +4,7 @@ import (
 	"io"
 	"runtime/debug"
 
-	"github.com/ipfs/go-ipfs-cmds"
+	"gx/ipfs/QmbWGdyATxHpmbDC2z7zMNnmPmiHCRXS5f2vyxBfgz8bVb/go-ipfs-cmds"
 
 	oldcmds "github.com/ipfs/go-ipfs/commands"
 )

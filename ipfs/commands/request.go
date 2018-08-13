@@ -7,11 +7,13 @@ import (
 	"time"
 
 	"github.com/ipfs/go-ipfs/core"
+	coreapi "github.com/ipfs/go-ipfs/core/coreapi"
+	coreiface "github.com/ipfs/go-ipfs/core/coreapi/interface"
 	"github.com/ipfs/go-ipfs/repo/config"
 
-	"github.com/ipfs/go-ipfs-cmds"
-	"github.com/ipfs/go-ipfs-cmdkit"
-	"github.com/ipfs/go-ipfs-cmdkit/files"
+	"gx/ipfs/QmbWGdyATxHpmbDC2z7zMNnmPmiHCRXS5f2vyxBfgz8bVb/go-ipfs-cmds"
+	"gx/ipfs/QmdE4gMduCKCGAcczM2F5ioYDfdeKuPix138wrES1YSr7f/go-ipfs-cmdkit"
+	"gx/ipfs/QmdE4gMduCKCGAcczM2F5ioYDfdeKuPix138wrES1YSr7f/go-ipfs-cmdkit/files"
 )
 
 type Context struct {
@@ -22,6 +24,7 @@ type Context struct {
 	config     *config.Config
 	LoadConfig func(path string) (*config.Config, error)
 
+	api           coreiface.CoreAPI
 	node          *core.IpfsNode
 	ConstructNode func() (*core.IpfsNode, error)
 }
@@ -50,6 +53,19 @@ func (c *Context) GetNode() (*core.IpfsNode, error) {
 		c.node, err = c.ConstructNode()
 	}
 	return c.node, err
+}
+
+// GetApi returns CoreAPI instance backed by ipfs node.
+// It may construct the node with the provided function
+func (c *Context) GetApi() (coreiface.CoreAPI, error) {
+	if c.api == nil {
+		n, err := c.GetNode()
+		if err != nil {
+			return nil, err
+		}
+		c.api = coreapi.NewCoreAPI(n)
+	}
+	return c.api, nil
 }
 
 // Context returns the node's context.

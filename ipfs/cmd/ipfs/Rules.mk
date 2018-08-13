@@ -18,10 +18,6 @@ $(d)_flags =-ldflags="-X "github.com/ipfs/go-ipfs/repo/config".CurrentCommit=$(g
 $(d)-try-build $(IPFS_BIN_$(d)): GOFLAGS += $(cmd/ipfs_flags)
 
 # uses second expansion to collect all $(DEPS_GO)
-$(warning ipfsinit $(IPFS_BIN_$(d)))
-$(warning $(DEPS_GO))
-$(warning $$(DEPS_GO))
-$(warning $(DEPS_OO_$(d)))
 $(IPFS_BIN_$(d)): $(d) $$(DEPS_GO) ALWAYS #| $(DEPS_OO_$(d))
 	$(go-build)
 

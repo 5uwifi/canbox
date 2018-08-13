@@ -22,6 +22,7 @@ while read -r -d "$PATHSEP" p; do
     if [ "$DIR" = "$(pwd -P)" ]; then
         exit 0
     fi
+    cd "$DIR"
 done <<< "$GOPATH$PATHSEP"
 
 echo "go-ipfs must be built from within your \$GOPATH directory."

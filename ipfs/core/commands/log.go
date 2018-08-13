@@ -6,9 +6,9 @@ import (
 
 	cmds "github.com/ipfs/go-ipfs/commands"
 
-	logging "github.com/ipfs/go-log"
-	lwriter "github.com/ipfs/go-log/writer"
-	"github.com/ipfs/go-ipfs-cmdkit"
+	logging "gx/ipfs/QmRREK2CAZ5Re2Bd9zZFG6FeYDppUWt5cMgsoUEp3ktgSr/go-log"
+	lwriter "gx/ipfs/QmRREK2CAZ5Re2Bd9zZFG6FeYDppUWt5cMgsoUEp3ktgSr/go-log/writer"
+	"gx/ipfs/QmdE4gMduCKCGAcczM2F5ioYDfdeKuPix138wrES1YSr7f/go-ipfs-cmdkit"
 )
 
 // Golang os.Args overrides * and replaces the character argument with

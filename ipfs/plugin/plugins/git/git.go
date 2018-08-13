@@ -9,9 +9,9 @@ import (
 	"github.com/ipfs/go-ipfs/core/coredag"
 	"github.com/ipfs/go-ipfs/plugin"
 
-	mh "github.com/multiformats/go-multihash"
-	"github.com/ipfs/go-cid"
-	"github.com/ipfs/go-ipld-format"
+	mh "gx/ipfs/QmPnFwZ2JXKnXgMw8CdBPxn7FWh6LLdjUjxV1fKHuJnkr8/go-multihash"
+	"gx/ipfs/QmYVNvtQkeZ6AKSwDrjQTs432QtL6umrrK41EBq3cu7iSP/go-cid"
+	"gx/ipfs/QmZtNq8dArGfnpCZfx2pUNY7UcjGhVp5qqwQ4hH6mpTMRQ/go-ipld-format"
 	git "gx/ipfs/QmarUgTjwokWN8NyEuvRP5gSsJQpDecpRJEKxAi31pM7XX/go-ipld-git"
 )
 

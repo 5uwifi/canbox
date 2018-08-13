@@ -2,8 +2,6 @@ include mk/header.mk
 
 dist_root_$(d)="/ipfs/QmYpvspyyUWQTE226NFWteXYJF3x3br25xmB6XzEoqfzyv"
 
-$(warning in the bin/Rules)
-$(warning $(d))
 $(d)/gx: $(d)/gx-v0.13.0
 $(d)/gx-go: $(d)/gx-go-v1.7.0
 

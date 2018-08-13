@@ -10,15 +10,15 @@ import (
 
 	pb "github.com/ipfs/go-ipfs/filestore/pb"
 
-	blockstore "gx/ipfs/QmRatnbGjPcoyzVjfixMZnuT1xQbjM7FgnL6FX4CKJeDE2/go-ipfs-blockstore"
+	blockstore "gx/ipfs/QmRNFh4wm6FgTDrtsWmnvEP9NTuEa3Ykf72y1LXCyevbGW/go-ipfs-blockstore"
 	posinfo "gx/ipfs/QmSHjPDw8yNgLZ7cBfX7w3Smn7PHwYhNEpd4LHQQxUg35L/go-ipfs-posinfo"
-	proto "gx/ipfs/QmT6n4mspWYEya864BhCUJEgyxiRfmiSY9ruQwTUNpRKaM/protobuf/proto"
-	blocks "github.com/ipfs/go-block-format"
-	cid "github.com/ipfs/go-cid"
+	blocks "gx/ipfs/QmVzK524a2VWLqyvtBeiHKsUAWYgeAk4DBeZoY7vpNPNRx/go-block-format"
+	cid "gx/ipfs/QmYVNvtQkeZ6AKSwDrjQTs432QtL6umrrK41EBq3cu7iSP/go-cid"
+	proto "gx/ipfs/QmZHU2gx42NPTYXzw6pJkuX6xCE7bKECp6e8QcPdoLx8sx/protobuf/proto"
 	dshelp "gx/ipfs/Qmd8UZEDddMaCnQ1G5eSrUhN3coX19V7SyXNQGWnAvUsnT/go-ipfs-ds-help"
-	ds "github.com/ipfs/go-datastore"
-	dsns "github.com/ipfs/go-datastore/namespace"
-	dsq "github.com/ipfs/go-datastore/query"
+	ds "gx/ipfs/QmeiCcJfDW1GJnWUArudsv5rQsihpi4oyddPhdqo3CfX6i/go-datastore"
+	dsns "gx/ipfs/QmeiCcJfDW1GJnWUArudsv5rQsihpi4oyddPhdqo3CfX6i/go-datastore/namespace"
+	dsq "gx/ipfs/QmeiCcJfDW1GJnWUArudsv5rQsihpi4oyddPhdqo3CfX6i/go-datastore/query"
 )
 
 // FilestorePrefix identifies the key prefix for FileManager blocks.
@@ -122,6 +122,18 @@ func (f *FileManager) Get(c *cid.Cid) (blocks.Block, error) {
 	return blocks.NewBlockWithCid(out, c)
 }
 
+// GetSize gets the size of the block from the datastore.
+//
+// This method may successfully return the size even if returning the block
+// would fail because the associated file is no longer available.
+func (f *FileManager) GetSize(c *cid.Cid) (int, error) {
+	dobj, err := f.getDataObj(c)
+	if err != nil {
+		return -1, err
+	}
+	return int(dobj.GetSize_()), nil
+}
+
 func (f *FileManager) readDataObj(c *cid.Cid, d *pb.DataObj) ([]byte, error) {
 	if IsURL(d.GetFilePath()) {
 		return f.readURLDataObj(c, d)
@@ -216,9 +228,9 @@ func (f *FileManager) readURLDataObj(c *cid.Cid, d *pb.DataObj) ([]byte, error) 
 	if err != nil {
 		return nil, &CorruptReferenceError{StatusFileError, err}
 	}
-	if res.StatusCode != http.StatusPartialContent {
+	if res.StatusCode != http.StatusOK && res.StatusCode != http.StatusPartialContent {
 		return nil, &CorruptReferenceError{StatusFileError,
-			fmt.Errorf("expected HTTP 206 got %d", res.StatusCode)}
+			fmt.Errorf("expected HTTP 200 or 206 got %d", res.StatusCode)}
 	}
 
 	outbuf := make([]byte, d.GetSize_())
