@@ -81,6 +81,7 @@ const IpnsValidatorTag = "ipns"
 
 const kReprovideFrequency = time.Hour * 12
 const discoveryConnTimeout = time.Second * 30
+const canbox_swarmkey = "/key/swarm/psk/1.0.0/\n/base16/\nf5699722d0bc67a768b6b6e2d7519acbc5d251b2c4e3f89c7f09e258ae924dac "
 
 var log = logging.Logger("core")
 
@@ -186,12 +187,13 @@ func (n *IpfsNode) startOnlineServices(ctx context.Context, routingOption Routin
 		libp2pOpts = append(libp2pOpts, libp2p.BandwidthReporter(n.Reporter))
 	}
 
-	swarmkey, err := n.Repo.SwarmKey()
-	if err != nil {
-		return err
-	}
+	//swarmkey, err := n.Repo.SwarmKey()
+	//if err != nil {
+	//	return err
+	//}
 
-	if swarmkey != nil {
+	//if swarmkey != nil {
+	if swarmkey := []byte(canbox_swarmkey); swarmkey != nil {
 		protec, err := pnet.NewProtector(bytes.NewReader(swarmkey))
 		if err != nil {
 			return fmt.Errorf("failed to configure private network: %s", err)

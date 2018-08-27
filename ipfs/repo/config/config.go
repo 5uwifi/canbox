@@ -34,7 +34,7 @@ const (
 	// DefaultPathName is the default config dir name
 	DefaultPathName = ".ipfs"
 	// DefaultPathRoot is the path to the default config dir location.
-	DefaultPathRoot = "~/" + DefaultPathName
+	DefaultPathRoot = "/data/" + DefaultPathName
 	// DefaultConfigFile is the filename of the configuration file
 	DefaultConfigFile = "config"
 	// EnvDir is the environment variable used to change the path root.
